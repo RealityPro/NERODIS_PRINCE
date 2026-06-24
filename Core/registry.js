@@ -1,18 +1,18 @@
 export const Registry = {
   status: () => ({
-    name: "NERODIS",
-    mode: "COGNITIVE RUNTIME",
+    system: "NERODIS",
+    mode: "CLEAN_KERNEL",
     integrity: "STABLE"
   }),
 
-  hello: () => "NERODIS: cognitive layer active.",
+  hello: () => "NERODIS: cognitive runtime active.",
 
   calc: (input) => {
     try {
       const expr = input.replace("calc", "").trim();
       return Function("return " + expr)();
     } catch {
-      return "ERROR: invalid expression";
+      return "ERROR";
     }
   }
 };

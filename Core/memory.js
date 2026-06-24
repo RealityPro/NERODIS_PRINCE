@@ -5,8 +5,7 @@ const Memory = {
   add(entry) {
     this.log.push({
       value: entry,
-      timestamp: Date.now(),
-      type: classify(entry)
+      timestamp: Date.now()
     });
 
     if (this.log.length > this.maxSize) {
@@ -18,11 +17,5 @@ const Memory = {
     return this.log;
   }
 };
-
-function classify(text) {
-  if (text.includes("calc")) return "math";
-  if (text.includes("status")) return "system";
-  return "general";
-}
 
 export { Memory };

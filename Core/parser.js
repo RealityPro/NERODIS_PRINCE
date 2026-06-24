@@ -8,3 +8,5 @@ function parse(input) {
 
   return { intent: "unknown", payload: cmd };
 }
+
+export { parse };

@@ -12,7 +12,7 @@ function runNERODIS(input, Memory, parse) {
       return JSON.stringify(Registry.status(), null, 2);
 
     case "memory":
-      return Memory.all().map(x => x.data).join("\n");
+      return Memory.all().map(x => x.value).join("\n");
 
     case "hello":
       return Registry.hello();
