@@ -1,11 +1,12 @@
 const Memory = {
   log: [],
-  maxSize: 50,
+  maxSize: 100,
 
   add(entry) {
     this.log.push({
-      data: entry,
-      time: Date.now()
+      value: entry,
+      timestamp: Date.now(),
+      type: classify(entry)
     });
 
     if (this.log.length > this.maxSize) {
@@ -13,11 +14,15 @@ const Memory = {
     }
   },
 
-  last() {
-    return this.log[this.log.length - 1];
-  },
-
   all() {
     return this.log;
   }
 };
+
+function classify(text) {
+  if (text.includes("calc")) return "math";
+  if (text.includes("status")) return "system";
+  return "general";
+}
+
+export { Memory };

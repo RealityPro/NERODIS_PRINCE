@@ -1,10 +1,10 @@
 function parse(input) {
   const cmd = input.trim().toLowerCase();
 
-  if (cmd === "status") return "STATUS_OK";
-  if (cmd === "memory") return "MEMORY_REQUEST";
-  if (cmd.startsWith("calc")) return "MATH_ENGINE";
-  if (cmd.includes("hello")) return "GREETING";
+  if (cmd === "status") return { intent: "status" };
+  if (cmd === "memory") return { intent: "memory" };
+  if (cmd.startsWith("calc")) return { intent: "calc", payload: cmd };
+  if (cmd.includes("hello") || cmd.includes("hi")) return { intent: "hello" };
 
-  return "UNKNOWN";
+  return { intent: "unknown", payload: cmd };
 }

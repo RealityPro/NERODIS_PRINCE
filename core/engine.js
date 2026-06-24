@@ -1,35 +1,28 @@
+import { Registry } from "./registry.js";
+
 function runNERODIS(input, Memory, parse) {
 
   Memory.add(input);
 
-  const intent = parse(input);
+  const { intent, payload } = parse(input);
 
   switch (intent) {
 
-    case "STATUS_OK":
-      return `
-NERODIS CORE STATUS
-Memory size: ${Memory.all().length}
-Integrity: stable
-      `.trim();
+    case "status":
+      return JSON.stringify(Registry.status(), null, 2);
 
-    case "MEMORY_REQUEST":
-      return Memory.all()
-        .map(x => x.data)
-        .join("\n");
+    case "memory":
+      return Memory.all().map(x => x.data).join("\n");
 
-    case "GREETING":
-      return "NERODIS: active cognitive layer online.";
+    case "hello":
+      return Registry.hello();
 
-    case "MATH_ENGINE":
-      try {
-        const expr = input.replace("calc", "").trim();
-        return "RESULT: " + Function("return " + expr)();
-      } catch {
-        return "MATH ERROR";
-      }
+    case "calc":
+      return Registry.calc(payload);
 
     default:
-      return `UNKNOWN INTENT: ${intent}`;
+      return `UNRESOLVED INTENT: ${intent}`;
   }
 }
+
+export { runNERODIS };
