@@ -1,0 +1,11 @@
+{
+  "name": "nerodis-prince",
+  "version": "0.1.0",
+  "description": "NERODIS Cognitive Runtime System",
+  "author": "Invincible Reality",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "echo \"Open index.html in a browser\""
+  }
+}
