@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "NERODIS Cognitive Runtime System",
   "author": "Invincible Reality",
-  "license": "MIT",
+  "license": "UNLICENSED",
   "type": "module",
   "scripts": {
     "start": "echo \"Open index.html in a browser\""

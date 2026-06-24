@@ -214,7 +214,13 @@ As the architecture matures, contribution guidelines, testing procedures, and co
 
 # License
 
-This project is licensed under the MIT License.
+## License
+
+NERODIS is proprietary software.
+
+Copyright © 2026 Invincible Reality. All Rights Reserved.
+
+No part of this software may be copied, modified, distributed, or used without prior written permission from the copyright owner.
 
 ---
 
